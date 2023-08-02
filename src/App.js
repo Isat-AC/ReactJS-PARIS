@@ -20,6 +20,8 @@ import image13 from "./date3.jpeg";
 import image14 from "./date.4.jpeg";
 import image18 from "./date8.webp";
 import MarqueCard from "./components/MarqueCard";
+import { useState } from "react";
+
 
 import image15 from "./date5.jpeg";
 
@@ -34,7 +36,17 @@ import shadows from "@mui/material/styles/shadows";
 import { FaBeer } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 
+import { Carousel } from "react-responsive-carousel";
+import Flickity from "react-flickity-component";
+
 function App() {
+  const flickityOptions = {
+    initialIndex: 2,
+  };
+
+  const [str, setStr] = useState("Paris");
+  const [con, setCon] = useState(1);
+
   return (
     <div>
       <div>
@@ -107,6 +119,7 @@ function App() {
               height: "40px",
               width: "100px",
               borderRadius: "10px",
+              boxShadow: "4px 4px 4px grey",
             }}
           >
             Living Cost
@@ -116,24 +129,34 @@ function App() {
               height: "40px",
               width: "100px",
               borderRadius: "10px",
+              boxShadow: "4px 4px 4px grey",
             }}
+            
           >
             Breakfast
           </button>
-          <button
+          <div className="example"
+          ><button
             style={{
               height: "40px",
               width: "100px",
               borderRadius: "10px",
+              boxShadow: "4px 4px 4px grey",
             }}
+            
           >
             Girl
           </button>
+          </div>
+         
+
+
           <button
             style={{
               height: "40px",
               width: "100px",
               borderRadius: "10px",
+              boxShadow: "4px 4px 4px grey",
             }}
           >
             Date
@@ -143,6 +166,7 @@ function App() {
               height: "40px",
               width: "100px",
               borderRadius: "10px",
+              boxShadow: "4px 4px 4px grey",
             }}
           >
             Flight
@@ -158,7 +182,21 @@ function App() {
           // backgroundPosition: "center",
         }}
       >
-        <div></div>
+        <div
+        style={{
+          backgroundImage: "url(/cardback3.jpg)",
+          backgroundSize: "cover",
+          height: "60vh",
+          alignItems: "flex-start",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "30px",
+          
+        }}
+        
+        
+        >
 
         <div
           style={{
@@ -169,6 +207,7 @@ function App() {
             justifyContent: "center",
             shadows: "10px",
             marginTop: "20px",
+            boxShadow:" 5px 5px 5px white"
           }}
         >
           <div></div>
@@ -245,10 +284,11 @@ function App() {
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 I Love It When You Call Me Señorita I Wish I Could Pretend I
-                Didn Need Ya But Every Touch Is Ooh-La-La-La
+                Didn Need Ya But <strong>Every Touch Is Ooh-La-La-La</strong>
               </Typography>
             </CardContent>
           </Card>
+        </div>
         </div>
       </div>
       <div>
@@ -381,61 +421,93 @@ function App() {
           </Card>
         </div>
       </div>
-
       <div
         style={{
+          backgroundImage: "url(/background2.avif)",
           backgroundSize: "cover",
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-          url(/parisac1.avif)`,
-          height: "400px",
+          height: "100vh",
           alignItems: "flex-start",
 
           display: "flex",
           flexDirection: "column",
-          marginTop: "30px",
-          width: "700px",
-          opacity: "o.8",
-          borderTopRightRadius: "250px",
-          borderBottomRightRadius: "250px",
-          boxShadow: "200px",
+          marginBottom: "30px",
+          opacity: "0.9",
         }}
       >
-        <p
+        <img
+          style={{ height: "50px", width: "50px", marginTop: "100px" }}
+          src={logo}
+        ></img>
+
+        <div
           style={{
-            fontSize: "35px",
+            backgroundSize: "cover",
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), 
+          url(/parisac1.avif)`,
+            height: "400px",
+            alignItems: "flex-start",
+
+            display: "flex",
+            flexDirection: "column",
+            marginTop: "30px",
             width: "700px",
-            fontWeight: "bolder",
-            color: "bisque",
+            opacity: "1",
+            borderTopRightRadius: "250px",
+            borderBottomRightRadius: "250px",
+            boxShadow: "10px 10px 10px rbga(0,0,0,0.4",
           }}
         >
-          There's just some things that never change You say we're just friends
-          But friends don't know the way you taste, la-la-la 'Cause you know
-          it's been a long time coming
-        </p>
+          <p
+            style={{
+              fontSize: "25px",
+              width: "650px",
+              fontWeight: "bolder",
+              color: "bisque",
+            }}
+          >
+            There's just some things that never change You say we're just
+            friends But friends don't know the way you taste, la-la-la 'Cause
+            you know it's been a long time coming
+          </p>
+        </div>
       </div>
-
-
       <div>
         <div className="App">
-          <div className="tittle">
-            <h1>Our Paris Date</h1>
+          <div
+            style={{
+              borderWidth: 0,
+              alignSelf: "center",
+              width: "300px",
+              margin: "0 auto",
+              borderRadius: "20px",
+              borderStyle: "double",
+              backgroundColor: "grey",
+            }}
+          >
+            <h1 style={{ padding: 2 }}>{str}</h1>
           </div>
           <div>
-            <Marquee pauseOnHover speed={50}  direction="right" delay={2} gradient={false} loop={0}>
-              <MarqueCard image={image11}/>
-              <MarqueCard image={image12}/>
-              <MarqueCard image={image13}/>
-              <MarqueCard image={image14}/>
-              <MarqueCard image={image15}/>
-              <MarqueCard image={image16}/>
-              <MarqueCard image={image17}/>
-              <MarqueCard image={image18}/>
-
-              
+            <Marquee
+              pauseOnHover
+              speed={50}
+              direction="right"
+              delay={2}
+              gradient={false}
+              loop={0}
+            >
+              <MarqueCard image={image11} />
+              <MarqueCard image={image12} />
+              <MarqueCard image={image13} />
+              <MarqueCard image={image14} />
+              <MarqueCard image={image15} />
+              <MarqueCard image={image16} />
+              <MarqueCard image={image17} />
+              <MarqueCard image={image18} />
             </Marquee>
           </div>
         </div>
       </div>
+  
     </div>
   );
 }
